@@ -125,6 +125,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
+        'Barryvdh\Debugbar\ServiceProvider',
 
         /*
          * Laravel Framework Service Providers...
@@ -208,6 +209,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
     ],
 

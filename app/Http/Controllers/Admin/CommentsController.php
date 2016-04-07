@@ -3,6 +3,7 @@
 namespace Melbourne\Http\Controllers\Admin;
 
 use Melbourne\Comment;
+use Melbourne\Event;
 use Illuminate\Http\Request;
 
 use Melbourne\Http\Requests;
@@ -11,10 +12,12 @@ use Melbourne\Http\Controllers\Controller;
 class CommentsController extends Controller
 {
     protected $comments;
+    protected $events;
 
-    public function __construct(Comment $comments)
+    public function __construct(Comment $comments, Event $events)
     {
         $this->comments = $comments;
+        $this->events = $events;
 
         // parent::__construct();
     }
@@ -36,9 +39,10 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Comment $comment)
     {
-        //
+        $events = Event::all(['id', 'title']);
+        return view('admin.comments.form', compact('comment', 'events'));
     }
 
     /**
@@ -49,7 +53,9 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->comments->create($request->only('content', 'post_id'));
+        
+        return redirect(route('admin.comments.index'))->with('status','Comment has been created.')->with('status', 'Event has been updated.');
     }
 
 
@@ -61,7 +67,9 @@ class CommentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = $this->comments->findOrFail($id);
+
+        return view('admin.comments.form', compact('comment'));
     }
 
     /**
@@ -73,7 +81,13 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = $this->comments->findOrFail($id);
+
+        $comment->fill($request->only('content', 'post_id'))->save();
+
+        $comment->event->fill($request->only('status'))->save();
+
+        return redirect(route('admin.comments.edit', $comment->id))->with('status', 'Event has been updated.');
     }
 
     public function confirm(Request $request, $id)

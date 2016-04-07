@@ -17,7 +17,7 @@
 	<tbody>
 	@if($comments->isEmpty())
 		<tr>
-			<td colspan="5" align="center">There are no pages.</td>
+			<td colspan="5" align="center">There are no comments.</td>
 		</tr>
 	@else
 		@foreach($comments as $comment)
@@ -27,7 +27,8 @@
 				</td>
 				
 				<td>{{ $comment->event->id }}</td>
-				<td>{{ $comment->event->status }}</td>
+				<td>{{ $comment->event->status }}
+				</td>
 				<td>
 					<a href="{{ route('admin.comments.edit', $comment->id) }}">
 						<span class="glyphicon glyphicon-edit"></span>
