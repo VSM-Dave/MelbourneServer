@@ -123,6 +123,9 @@ return [
 
     'providers' => [
 
+        Collective\Html\HtmlServiceProvider::class,
+        Lewis\Presenter\PresenterServiceProvider::class,
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -155,8 +158,6 @@ return [
         Melbourne\Providers\AuthServiceProvider::class,
         Melbourne\Providers\EventServiceProvider::class,
         Melbourne\Providers\RouteServiceProvider::class,
-
-        Collective\Html\HtmlServiceProvider::class,
 
 
     ],

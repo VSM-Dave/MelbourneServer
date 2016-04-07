@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['view']->composer('layouts.auth', Composers\AddStatusMessage::class);
+        $this->app['view']->composer('layouts.admin', Composers\AddStatusMessage::class);
         $this->app['view']->composer('layouts.admin', Composers\AddAdminUser::class);
     }
 
