@@ -16,6 +16,7 @@ Route::controller('auth', 'Auth\AuthController', [
 	'getLogout' => 'auth.logout'
 
 ]);
+Route::get('admin/events/{id}/comment/create', ['uses' => 'Admin\CommentsController@createFromEvent']);
 
 Route::get('admin/events/{event}/confirm', ['as' => 'admin.events.confirm', 'uses' => 'Admin\EventsController@confirm']);
 Route::resource('admin/events', 'Admin\EventsController', ['except' => ['show']]);

@@ -28,7 +28,7 @@
 		  {!! Form::Label('event', 'Event:') !!}
 		  <select class="form-control" name="post_id">
 		    @foreach($events as $event)
-		      <option value="{{$event->id}}">{{$event->title}}</option>
+		      <option value="{{$event->id}}" >{{$event->title}}</option>
 		    @endforeach
 		  </select>
 		</div>

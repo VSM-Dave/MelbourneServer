@@ -31,11 +31,7 @@
 				<td>{{ $event->description }}</td>
 				<td>{{ $event->status }}</td>
 				<td>{{ $event->last_updated }}</td>
-				<td>{{ $event->comments->count() }}
-				@foreach ($event->comments as $event) 
-		            {{ $event->id }}, 
-		        @endforeach
-
+				<td><button class="btn btn-info" type="submit">Add Comment</button>
 				</td>
 				<td>
 					<a href="{{ route('admin.events.edit', $event->id) }}">

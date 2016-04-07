@@ -9,6 +9,7 @@
 		<tr>
 			<th>Content</th>
 			<th>Post ID</th>
+			<th>Post Title</th>
 			<th>Status</th>
 			<th>Edit</th>
 			<th>Delete</th>
@@ -27,7 +28,18 @@
 				</td>
 				
 				<td>{{ $comment->event->id }}</td>
-				<td>{{ $comment->event->status }}
+				<td>{{ $comment->event->title }}</td>
+				<td><span class="label 
+				@if ($comment->event->status == 'Critical')
+					label-danger"
+				@elseif ($comment->event->status == 'Intermitant')
+					label-warning"
+				@elseif ($comment->event->status == 'Resolved')
+					label-success"
+				@endif
+				>
+						{{ $comment->event->status }}
+					</span>
 				</td>
 				<td>
 					<a href="{{ route('admin.comments.edit', $comment->id) }}">
