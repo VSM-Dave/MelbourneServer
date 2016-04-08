@@ -26,6 +26,11 @@ Route::resource('admin/comments', 'Admin\CommentsController', ['except' => ['sho
 
 Route::get('admin/dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'pages.index', 'uses' => 'FrontendController@index']);
+Route::get('resolved', ['as' => 'pages.resolved', 'uses' => 'FrontendController@ShowResolved']);
+Route::get('scheduled', ['as' => 'pages.scheduled', 'uses' => 'FrontendController@ShowScheduled']);
+Route::get('event/{id}', ['as' => 'pages.event', 'uses' => 'FrontendController@ShowEvent']);
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });

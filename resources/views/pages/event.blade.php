@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
-@section('title', 'Welcome')
+@section('title', $event->title)
 
 @section('content')
-Hello World
+{{$event->description}}
 @endsection

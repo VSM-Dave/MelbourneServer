@@ -26,6 +26,9 @@
 		@foreach($events as $event)
 			<tr>
 				<td>
+				@if ($event->is_active)
+				<span class="label label-info">Active</span>
+				@endif
 					<a href="{{ route('admin.events.edit', $event->id) }}">{{ $event->title }}</a>
 				</td>
 				

@@ -37,4 +37,5 @@ elixir(function(mix) {
 	// mix.copy(elixir.config.assetsPath+'/js/datepicker', elixir.config.publicPath+'/js/datepicker');
 
     mix.sass('admin.scss');
+    mix.sass('front.scss');
 });

@@ -42,4 +42,25 @@ class EventPresenter extends AbstractPresenter
 		}
 		return false;
 	}
+
+	public function isActive() 
+	{
+		
+		if ($this->scheduled_for < Carbon::now() && $this->status != 'Resolved')
+			{
+				return true;
+			}
+		
+		return false;
+
+	}
+
+	public function isResolved()
+	{
+		if ($this->status == 'Resolved')
+		{
+			return true;
+		}
+		return false;
+	}
 }
