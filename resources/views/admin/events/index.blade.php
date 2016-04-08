@@ -10,6 +10,7 @@
 			<th>Title</th>
 			<th>Description</th>
 			<th>Status</th>
+			<th>Sheduled</th>
 			<th>Last Update</th>
 			<th>Add Comment</th>
 			<th>Edit</th>
@@ -29,9 +30,26 @@
 				</td>
 				
 				<td>{{ $event->description }}</td>
-				<td>{{ $event->status }}</td>
-				<td>{{ $event->last_updated }}</td>
-				<td><button class="btn btn-info" type="submit">Add Comment</button>
+				<td><span class="label 
+				@if ($event->status == 'Critical')
+					label-danger"
+				@elseif ($event->status == 'Intermitant')
+					label-warning"
+				@elseif ($event->status == 'Resolved')
+					label-success"
+				@endif
+				>
+						{{ $event->status }}
+					</span>
+				</td>
+				<td>@if ($event->is_scheduled)
+				<span class="label label-primary">Scheduled</span><br>
+				@endif
+				<span class="small">{{ $event->scheduled_date }}</span>
+				</td>
+				<td>{{ $event->last_updated }}
+				</td>
+				<td><a href="{{ route('admin.events.comment.create', $event->id) }}" class="btn btn-info" >Add Comment</a>
 				</td>
 				<td>
 					<a href="{{ route('admin.events.edit', $event->id) }}">

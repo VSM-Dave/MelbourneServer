@@ -26,7 +26,8 @@ class StoreEventRequest extends Request
         return [
             'title' => ['required'],
             'description' => ['required'],
-            'status' => ['required']
+            'status' => ['required'],
+            'scheduled_for' => ['required']
         ];
     }
 }

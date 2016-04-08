@@ -23,5 +23,18 @@ elixir(function(mix) {
 	mix.copy('node_modules/bootstrap-sass/assets/fonts', elixir.config.publicPath+'/fonts');
 	mix.copy('node_modules/font-awesome/fonts', elixir.config.publicPath+'/fonts');
 
+	mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', elixir.config.assetsPath+'/js/bootstrap.js');
+	mix.copy('node_modules/jquery/dist/jquery.min.js', elixir.config.assetsPath+'/js/jquery.js');
+	mix.copy('node_modules/moment/min/moment.min.js', elixir.config.assetsPath+'/js/moment.js');
+
+	mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', elixir.config.assetsPath+'/js/datepicker.js');
+	mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/src/sass/_bootstrap-datetimepicker.scss', elixir.config.assetsPath+'/sass/datepicker.scss');
+
+	mix.scripts([
+			'jquery.js', 'bootstrap.js', 'moment.js', 'datepicker.js'
+		]);
+
+	// mix.copy(elixir.config.assetsPath+'/js/datepicker', elixir.config.publicPath+'/js/datepicker');
+
     mix.sass('admin.scss');
 });

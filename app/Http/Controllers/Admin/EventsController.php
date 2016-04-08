@@ -21,7 +21,7 @@ class EventsController extends Controller
     public function index()
     {
 
-        $events = $this->events->orderBy('updated_at', 'desc')->paginate(10);
+        $events = $this->events->orderBy('scheduled_for', 'desc')->orderBy('updated_at', 'desc')->paginate(10);
 
 
         return view('admin.events.index', compact('events'));
@@ -45,7 +45,7 @@ class EventsController extends Controller
      */
     public function store(Requests\StoreEventRequest $request)
     {
-        $this->events->create($request->only('title', 'description', 'status'));
+        $this->events->create($request->only('title', 'description', 'status', 'scheduled_for'));
 
         return redirect(route('admin.events.index'))->with('status','Event has been created.');
     }

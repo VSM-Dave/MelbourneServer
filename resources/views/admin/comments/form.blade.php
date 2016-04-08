@@ -4,11 +4,12 @@
 
 @section('content')
 
+
 {!! Form::model($comment, [
 	'method' => $comment->exists ? 'put' : 'post',
 	'route'	=> 	$comment->exists ? ['admin.comments.update', $comment->id] : ['admin.comments.store']
 	]) !!}
-
+{!! Form::hidden('user_id', Auth::user()->id) !!}
 <div class="form-group">
 		{!! Form::label('content') !!}
 		{!! Form::text('content', null, ['class' => 'form-control']) !!}
@@ -28,7 +29,11 @@
 		  {!! Form::Label('event', 'Event:') !!}
 		  <select class="form-control" name="post_id">
 		    @foreach($events as $event)
-		      <option value="{{$event->id}}" >{{$event->title}}</option>
+		      <option value="{{$event->id}}" 
+		      @if ($event->id == $event_id)
+		      selected
+		      @endif
+		      >{{$event->status}} - {{$event->id}} - {{$event->title}}</option>
 		    @endforeach
 		  </select>
 		</div>

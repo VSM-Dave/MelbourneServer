@@ -42,18 +42,19 @@ class CommentsController extends Controller
     public function create(Comment $comment)
     {
 
-        $events = Event::all(['id', 'title']);
+        $events = Event::all(['id', 'title', 'status']);
+        $event_id = null;
 
-        return view('admin.comments.form', compact('comment', 'events'));
+
+        return view('admin.comments.form', compact('comment', 'events', 'event_id'));
     }
 
-    // public function createFromEvent(Comment $comment, $id)
-    // {
-    //     $events = $this->events->findOrFail($id);
-    //     $events = Event::findOrFail(1);
+    public function createFromEvent(Comment $comment, $event_id)
+    {
+        $events = $this->events->findOrFail($event_id)->get();
 
-    //     return view('admin.comments.form', compact('comment', 'events'));
-    // }
+        return view('admin.comments.form', compact('comment', 'events', 'event_id'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -63,7 +64,7 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = $this->comments->create($request->only('content', 'post_id'));
+        $comment = $this->comments->create($request->only('content', 'post_id', 'user_id'));
         $comment->event->fill($request->only('status'))->save();
 
         return redirect(route('admin.comments.index'))->with('status','Comment has been created.')->with('status', 'Event has been updated.');

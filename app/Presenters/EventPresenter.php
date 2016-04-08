@@ -3,6 +3,7 @@
 namespace Melbourne\Presenters;
 
 use Lewis\Presenter\AbstractPresenter;
+use Carbon\Carbon;
 
 /**
 * 
@@ -12,9 +13,9 @@ class EventPresenter extends AbstractPresenter
 	
 	public function scheduledDate()
 	{
-		if ($this->scheduled_at)
+		if ($this->scheduled_for)
 		{
-			return $this->scheduled_at->toFormattedDateString();
+			return $this->scheduled_for->toDayDateTimeString();
 		}
 
 		return 'Not Scheduled';
@@ -28,5 +29,17 @@ class EventPresenter extends AbstractPresenter
 		}
 
 		return 'No Update';
+	}
+
+	public function isScheduled()
+	{
+		if ($this->scheduled_for)
+		{
+			if ($this->scheduled_for > Carbon::now())
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

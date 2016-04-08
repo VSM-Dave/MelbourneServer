@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@yield('title') &mdash; Melbourne Server</title>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/admin.css') }}">
+	<script src="{{ URL::asset('assets/js/all.js') }}" ></script>
 </head>
 <body>
 <nav class="navbar navbar-static-top navbar-inverse">

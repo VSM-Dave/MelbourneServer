@@ -7,10 +7,11 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
+			<th>Updated</th>
 			<th>Content</th>
-			<th>Post ID</th>
-			<th>Post Title</th>
-			<th>Status</th>
+			<th>Event ID</th>
+			<th>Event Title</th>
+			<th>Event Status</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
@@ -23,6 +24,7 @@
 	@else
 		@foreach($comments as $comment)
 			<tr>
+				<td>{{ $comment->last_updated }}</td>
 				<td>
 					<a href="{{ route('admin.comments.edit', $comment->id) }}">{{ $comment->content }}</a>
 				</td>

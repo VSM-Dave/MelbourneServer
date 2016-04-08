@@ -15,5 +15,6 @@ return [
     */
 
     Melbourne\Event::class => Melbourne\Presenters\EventPresenter::class,
+    Melbourne\Comment::class => Melbourne\Presenters\CommentPresenter::class,
 
 ];
