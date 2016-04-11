@@ -50,7 +50,7 @@
 				@endif
 				<span class="small">{{ $event->scheduled_date }}</span>
 				</td>
-				<td>{{ $event->last_updated }}
+				<td><span class="small">{{ $event->last_updated }}</span>
 				</td>
 				<td><a href="{{ route('admin.events.comment.create', $event->id) }}" class="btn btn-info" >Add Comment</a>
 				</td>

@@ -7,8 +7,6 @@
 
 	<title>@yield('title') &mdash; Melbourne Server</title>
 
-	{!! Feed::link(url('feed'), 'text/xml') !!}
-
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/front.css') }}">
 </head>
 <body>
@@ -22,7 +20,7 @@
 		<li><a href="{{ route('pages.resolved') }}">Resolved</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
-		<li><a href="{{ route('auth.login') }}">Login</a></li>
+		<li><a href="{{ route('auth.login') }}">Admin Area</a></li>
 	</ul>
 </div>
 </nav>
@@ -30,7 +28,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h3>@yield('title')</h3>
 			@yield('content')
 		</div>
 	</div>

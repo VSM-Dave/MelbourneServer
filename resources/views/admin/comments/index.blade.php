@@ -8,9 +8,9 @@
 	<thead>
 		<tr>
 			<th>Updated</th>
-			<th>Content</th>
-			<th>Event ID</th>
-			<th>Event Title</th>
+			<th>Comment</th>
+<!-- 			<th>Event ID</th>
+ -->			<th>Event Title</th>
 			<th>Event Status</th>
 			<th>Edit</th>
 			<th>Delete</th>
@@ -24,13 +24,13 @@
 	@else
 		@foreach($comments as $comment)
 			<tr>
-				<td>{{ $comment->last_updated }}</td>
+				<td>{{ $comment->comment_updated }}</td>
 				<td>
 					<a href="{{ route('admin.comments.edit', $comment->id) }}">{{ $comment->content }}</a>
 				</td>
 				
-				<td>{{ $comment->event->id }}</td>
-				<td>{{ $comment->event->title }}</td>
+<!-- 				<td>{{ $comment->event->id }}</td>
+ -->				<td>{{ $comment->event->title }}</td>
 				<td><span class="label 
 				@if ($comment->event->status == 'Critical')
 					label-danger"

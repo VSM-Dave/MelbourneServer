@@ -1,5 +1,7 @@
 @extends('layouts.front')
 
+@section('title', 'Server Events')
+
 @section('content')
 
 <div class="container">
@@ -29,7 +31,23 @@
 			  		@foreach($events as $event)
 			  			@if ($event->is_active)
 			  			<a href="{{route('pages.event', $event->id)}}">
-			  				{{$event->status}} - {{$event->title}}</a> <br>
+				  			<div class="well well-sm">
+					  			<h4><span class="label 
+									@if ($event->status == 'Critical')
+										label-danger"
+									@elseif ($event->status == 'Intermitant')
+										label-warning"
+									@elseif ($event->status == 'Resolved')
+										label-success"
+									@endif
+									>{{ $event->status }}
+									</span>{{$event->title}}
+								</h4>
+				  				<p class="small">Event Occured <strong>{{$event->date_created}}</strong></p>
+				  				<p class="small">Last Updated <strong>{{$event->last_updated}}</strong></p>
+				  				<p class="small">{{$event->comments->count()}} comments</p>
+				  			</div>
+			  		 	</a>
 			  			@endif
 			  		@endforeach
 			  	</div>
@@ -43,7 +61,23 @@
 			  <div class="panel-body">
 			  	@foreach($events as $event)
 			  			@if ($event->is_scheduled && !$event->is_resolved)
-			  				{{$event->status}} - {{$event->title}}<br>
+			  			<a href="{{route('pages.event', $event->id)}}">
+				  			<div class="well well-sm">
+				  				<h4><span class="label 
+									@if ($event->status == 'Critical')
+										label-danger"
+									@elseif ($event->status == 'Intermitant')
+										label-warning"
+									@elseif ($event->status == 'Resolved')
+										label-success"
+									@endif
+									>{{ $event->status }}
+									</span>{{$event->title}}
+								</h4>
+								<p class="small">Scheduled For <strong>{{$event->scheduled_date}}</strong></p>
+								<p class="small">{{$event->comments->count()}} comments</p>
+				  			</div>
+				  		</a>
 			  			@endif
 			  		@endforeach
 			  </div>

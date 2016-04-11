@@ -17,8 +17,7 @@ class Event extends Model
 
 	public function comments()
     {
-        return $this->hasMany('Melbourne\Comment', 'post_id');
+        return $this->hasMany('Melbourne\Comment', 'post_id')->orderBy('updated_at', 'desc');
     }
-	
 	
 }

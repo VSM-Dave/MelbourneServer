@@ -10,6 +10,14 @@ use Carbon\Carbon;
 */
 class EventPresenter extends AbstractPresenter
 {
+	public function dateCreated()
+	{
+		if ($this->scheduled_for)
+		{
+			return $this->scheduled_for->toDayDateTimeString();
+		}
+		return 'No Date Entered';
+	}
 	
 	public function scheduledDate()
 	{
@@ -25,7 +33,7 @@ class EventPresenter extends AbstractPresenter
 	{
 		if ($this->updated_at)
 		{
-			return $this->updated_at->toFormattedDateString();
+			return $this->updated_at->toDayDateTimeString();
 		}
 
 		return 'No Update';
@@ -63,4 +71,14 @@ class EventPresenter extends AbstractPresenter
 		}
 		return false;
 	}
+
+	public function hasComments() 
+	{
+		if ($this->comments->count() > 0)
+		{
+			return true;
+		}
+		return false;
+	}
+
 }

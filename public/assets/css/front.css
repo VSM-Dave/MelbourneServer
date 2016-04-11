@@ -5749,4 +5749,25 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.panel-body a:hover {
+  text-decoration: none; }
+
+.panel-body h4 {
+  line-height: 1.3em; }
+  .panel-body h4 span {
+    margin-right: 16px; }
+
+.event-panel .panel-heading {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .event-panel .panel-heading .label {
+    font-size: 1.8em; }
+
+.panel-comments {
+  padding: 16px; }
+
 /*# sourceMappingURL=front.css.map */

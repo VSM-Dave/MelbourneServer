@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/London',
 
     /*
     |--------------------------------------------------------------------------
@@ -126,6 +126,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
         'Barryvdh\Debugbar\ServiceProvider',
+        'Roumen\Feed\FeedServiceProvider',
 
         /*
          * Laravel Framework Service Providers...
@@ -210,6 +211,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'Feed' => 'Roumen\Feed\Feed',
+
 
     ],
 

@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 {!! Form::model($comment, [
 	'method' => $comment->exists ? 'put' : 'post',
 	'route'	=> 	$comment->exists ? ['admin.comments.update', $comment->id] : ['admin.comments.store']
@@ -33,7 +32,7 @@
 		      @if ($event->id == $event_id)
 		      selected
 		      @endif
-		      >{{$event->status}} - {{$event->id}} - {{$event->title}}</option>
+		      >{{$event->status}} - {{$event->title}}</option>
 		    @endforeach
 		  </select>
 		</div>

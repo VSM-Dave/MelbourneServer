@@ -42,4 +42,9 @@ class FrontendController extends Controller
 
         return view('pages.event', compact('event'));
 	}
+
+	public function rss()
+	  {
+	    //
+	  }
 }
