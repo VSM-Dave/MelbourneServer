@@ -9,20 +9,29 @@
 	<script src="{{ URL::asset('assets/js/all.js') }}" ></script>
 </head>
 <body>
-<nav class="navbar navbar-static-top navbar-inverse">
-<div class="container">
-	<div class="navbar-header"><a href="/" class="navbar-brand">Melbourne Server</a></div>
-	<ul class="nav navbar-nav">
-		<li><a href="{{ route('admin.events.index') }}">Events</a></li>
-		<li><a href="{{ route('admin.comments.index') }}">Comments</a></li>
-		
-	</ul>
-	<ul class="nav navbar-nav navbar-right">
-		<li><span class="navbar-text">Hello, {{ $admin->name }}</span></li>
-		<li><a href="{{ route('auth.logout') }}">Logout</a></li>
-	</ul>
-</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="/">Melbourne Server</a>
+    </div>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ route('admin.events.index') }}">Events</a></li>
+		<li><a href="{{ route('admin.comments.index') }}">Comments</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><span class="navbar-text">Hello, {{ $admin->name }}</span></li>
+		<li><a href="{{ route('auth.logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
 
 <div class="container">
 	<div class="row">

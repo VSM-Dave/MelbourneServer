@@ -23,8 +23,9 @@ class EventTableSeeder extends Seeder
         		'title' 		=> $faker->sentence($nbWords = 5, $variableNbWords = true),
         		'description' 	=> $faker->sentence($nbWords = 15, $variableNbWords = true),
         		'status' 		=> $faker->randomElement($array = array ('critical','intermitant','resolved')),
+                'created_at'    => $faker->dateTimeBetween('-1 month', 'now'),
                 'updated_at'    => $faker->dateTimeBetween('-1 month', 'now'),
-        		'scheduled_for' => $faker->dateTimeBetween('-1 month', '+10 days')
+        		'scheduled_for' => $faker->dateTimeBetween('-1 month', '+14 days')
         	]
         	]);
         }

@@ -23,7 +23,8 @@ class CommentTableSeeder extends Seeder
         		'user_id' 		=> '1',
         		'content' 		=> $faker->sentence($nbWords = 15, $variableNbWords = true),
         		'post_id' 		=> $faker->numberBetween($min = 1, $max = 20),
-                'updated_at'    => $faker->dateTimeBetween($startDate = 'now', $endDate = 'now')
+                'created_at'    => $faker->dateTimeBetween('-1 month', 'now'),
+                'updated_at'    => $faker->dateTimeBetween('-1 month', 'now')
         	]
         	]);
         }
