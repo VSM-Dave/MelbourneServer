@@ -1,5 +1,7 @@
 # Melbourne Server Status
 
+Site viewable at http://davie668.com/
+
 ## Resources
 ### Laravel
 Open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
