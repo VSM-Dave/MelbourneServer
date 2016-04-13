@@ -16,6 +16,15 @@ Route::controller('auth', 'Auth\AuthController', [
 	'getLogout' => 'auth.logout'
 
 ]);
+
+Route::get('login', function(){
+  return redirect(route('auth.login'));
+});
+
+Route::get('admin', function(){
+  return redirect(route('auth.login'));
+});
+
 Route::get('admin/events/{event_id}/comment/create', ['as' => 'admin.events.comment.create', 'uses' => 'Admin\CommentsController@createFromEvent']);
 
 Route::get('admin/events/{event}/confirm', ['as' => 'admin.events.confirm', 'uses' => 'Admin\EventsController@confirm']);

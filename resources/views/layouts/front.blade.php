@@ -10,6 +10,8 @@
 	{!! Feed::link(url('feed'), 'text/xml') !!}
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/front.css') }}">
+	<script src="{{ URL::asset('assets/js/all.js') }}" ></script>
+
 </head>
 <body>
 

@@ -125,7 +125,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
-        'Barryvdh\Debugbar\ServiceProvider',
+        // 'Barryvdh\Debugbar\ServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
 
         /*
@@ -210,7 +210,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        // 'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'Feed' => 'Roumen\Feed\Feed',
 
 
